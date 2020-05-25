@@ -84,8 +84,8 @@ if __name__ == '__main__':
     model.build(input_shape=(None, None, 64, 64, 1))
     ## optimizer
     optimizer = tf.keras.optimizers.Adam()
-    model.compile(loss='mse', optimizer=optimizer)
-    model.fit(tf.random.uniform((1, 1, 64, 64, 1)), tf.random.uniform((1, 1, 64, 64, 1)), epochs=1)
+    #model.compile(loss='mse', optimizer=optimizer)
+    #model.fit(tf.random.uniform((1, 1, 64, 64, 1)), tf.random.uniform((1, 1, 64, 64, 1)), epochs=1)
 
     ## training process
     ## checkpoint
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     checkpoint = tf.train.Checkpoint(model=model, optimizer=optimizer)
     
     ## Restore models
-    status = checkpoint.restore(tf.train.latest_checkpoint('./training_checkpoints')).assert_consumed()
+    #status = checkpoint.restore(tf.train.latest_checkpoint('./training_checkpoints')).assert_consumed()
     
     for epoch in range(EPOCHS):
         start = time.time()
